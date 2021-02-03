@@ -334,8 +334,8 @@ def animate_rays(xs, ys, zs, ts, a, cmap='jet', n_frame=None, disc=False, burst_
 
     def init():
         for line in lines:
-            line.set_data([],[])
-            # line.set_3d_properties([])
+            line.set_data(np.asarray([]),np.asarray([]))
+            line.set_3d_properties(np.asarray([]))
         return lines
 
     def animate(i):
