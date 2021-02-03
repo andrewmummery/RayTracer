@@ -1,5 +1,6 @@
 ### For compiling/running the c++ file
 import os
+import platform ## for checking if im windows or linux
 
 ### 3rd party imports ###
 
@@ -43,7 +44,12 @@ def run_cpp_ray_trace(params, technique='Simple',exe_file='ray_tracing.o', cpp_f
     else:
         exe_file = compile_cpp(cpp_file, exe_file)
     
-    exe_file = './' + exe_file
+    if platform.system() == 'Darwin':
+        exe_file = './' + exe_file
+    elif platform.system() == 'Windows':
+        exe_file = '.\\' + exe_file
+    else:
+        exe_file = './' + exe_file#I am probably on Linux
     
     if len(params) != 4:
         print('######################### ERROR #########################')
@@ -329,7 +335,7 @@ def animate_rays(xs, ys, zs, ts, a, cmap='jet', n_frame=None, disc=False, burst_
     def init():
         for line in lines:
             line.set_data([],[])
-            line.set_3d_properties([])
+            # line.set_3d_properties([])
         return lines
 
     def animate(i):
@@ -348,8 +354,8 @@ def animate_rays(xs, ys, zs, ts, a, cmap='jet', n_frame=None, disc=False, burst_
                 zlist[j] = z_animate[j][:i]
 
         for lnum,line in enumerate(lines):
-            line.set_data(xlist[lnum], ylist[lnum])
-            line.set_3d_properties(zlist[lnum])
+            line.set_data(np.asarray(xlist[lnum]), np.asarray(ylist[lnum]))
+            line.set_3d_properties(np.asarray(zlist[lnum]))
         return lines
 
     anim = animation.FuncAnimation(fig, animate, init_func=init, frames = n_frame, interval = interval, blit = blit, repeat = repeat)
