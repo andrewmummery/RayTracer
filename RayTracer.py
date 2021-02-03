@@ -586,8 +586,8 @@ def camera_image(a, theta0, N_r=50, N_phi=200, r_out=20, rest_wavelength=550, wa
             for k in range(n):
                 plot_phi = np.linspace(np.pi/2,3*np.pi/2,100)
                 r = ri + (rH/np.cos(theta0*np.pi/180) - ri) * k/(n-1)
-                disc_x_line = r * np.cos(plot_phi)
-                disc_y_line = r * np.cos(theta0*np.pi/180) * np.sin(plot_phi)
+                disc_x_line = r * np.sin(plot_phi)
+                disc_y_line = r * np.cos(theta0*np.pi/180) * np.cos(plot_phi)
                 ax1.plot(disc_x_line, disc_y_line, color=wavelength_to_rgb(rest_wavelength),lw=1)
     else:
         n = 40
