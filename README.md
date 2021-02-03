@@ -3,6 +3,7 @@
 
 ### What do I do?  ###
 
+![](https://github.com/andrewmummery/RayTracer/blob/main/Schematic_of_co-ordinates.png)
 
 
 ### How do I get set up? ###
