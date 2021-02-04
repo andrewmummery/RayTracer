@@ -11,11 +11,11 @@ If any students on the Oxford B5 - General Relativity course find bugs/need help
 ## What does RayTracer do?  ##
 This package solves the evolutionary equations for photons moving through the Kerr metric.  The program is designed to trace the paths of photons emitted from an accretion disc in the blackholes equatorial plane, to an astronomical observer. This sort of calculation is important for astrophysical research, as strong gravity effects can substantially modify the observed emission profiles of accretion discs.
 
-The same equations also allows interesting photon orbits to be calculated. This software package allows animations like the following to be simply calculated and produced.  
+The same equations also allow interesting photon orbits to be calculated. This software package allows animations like the following to be simply calculated and produced.  
 
 ![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleAnimation.gif)
 
-This package can also take a 'camera image' of an accretion disc around a blackhole. 
+This package can also take a 'camera image' of an accretion disc around a blackhole. For example, if we imagine a green monochromatic accretion disc (physically unlikely), in orbit around a blackhole, like the below:
 
 ![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleNewtonianFigure.png)
 ![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleGRFigure.png)
