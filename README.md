@@ -73,9 +73,25 @@ The path of the photon is terminated when it either:
 #### Step 4 ####
 Load the trajectories <a href="https://www.codecogs.com/eqnedit.php?latex=r(\tau'),&space; &space;\theta(\tau'),&space; &space;\varphi&space;(\tau'),&space;&space;t(\tau')" target="_blank"><img src="https://latex.codecogs.com/gif.latex?r(\tau'),&space;&space;\theta(\tau'),&space;&space;\varphi&space;(\tau'),&space;&space;t(\tau')" title="r(\tau'), \, \theta(\tau'), \, \varphi (\tau'), \, t(\tau')" /></a> into Python, where they can be analysed. These trajectories are then converted to cartesian co-ordinates <a href="https://www.codecogs.com/eqnedit.php?latex=x(\tau'),&space;y(\tau'),&space;z(\tau')" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x(\tau'),&space;y(\tau'),&space;z(\tau')" title="x(\tau'), y(\tau'), z(\tau')" /></a> internally in the Python script, and are then plotted. 
 
+## How do I use this package? ##
+The main functions for the user are all in the RayTracer.py file. They can be split into three types.
+### Getting the physical parameters of a photon trajectory ###
+Use the function RayTracer.run_cpp_ray_trace(params) which takes as input a list 'params'.
 
+The list params should be in the following format <a href="https://www.codecogs.com/eqnedit.php?latex=p&space;=&space;[\alpha,&space;\beta,&space;\theta_{\rm&space;obs},&space;a]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p&space;=&space;[\alpha,&space;\beta,&space;\theta_{\rm&space;obs},&space;a]" title="p = [\alpha, \beta, \theta_{\rm obs}, a]" /></a> .
 
-## How do I get set up? ##
+A second parameter 'technique' specifies how the algorithm is terminated. It can take one of three values
+* 'Simple': The photon path is terminated whenever the photon passes through the equatorial plane
+* 'Disc': The photon path is terminated if it hits the disc or event horizon
+* 'NoDisc': The photon path is terminated if it hits the blackhole event horizon
+
+### Plotting or animating photon paths ###
+Use one the functions 
+* RayTracer.plot_and_animate_rays_from_parameters(spins, thetas, alphas, betas)
+* RayTracer.plot_rays_from_parameters(spins, thetas, alphas, betas)
+* RayTracer.animate_rays_from_parameters(spins, thetas, alphas, betas)
+
+## How do I set up this package? ##
 
 * Pull the codes into their own folder
 * Run examples.py for a series of examples of what the code package can do. Note: you will have to manually edit examples.py to display different examples, the script defaults to 'example_zero' 
