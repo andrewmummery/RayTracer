@@ -71,7 +71,7 @@ The path of the photon is terminated when it either:
 * Passes between the disc inner edge and the blackholes event horizon and escapes to a large distance (~ 30 gravitational radii) from the blackhole
 
 #### Step 4 ####
-Load the trajectories <a href="https://www.codecogs.com/eqnedit.php?latex=r(\tau'),&space; &space;\theta(\tau'),&space; &space;\varphi&space;(\tau'),&space;&space;t(\tau')" target="_blank"><img src="https://latex.codecogs.com/gif.latex?r(\tau'),&space;&space;\theta(\tau'),&space;&space;\varphi&space;(\tau'),&space;&space;t(\tau')" title="r(\tau'), \, \theta(\tau'), \, \varphi (\tau'), \, t(\tau')" /></a> into Python, where they can be analysed. 
+Load the trajectories <a href="https://www.codecogs.com/eqnedit.php?latex=r(\tau'),&space; &space;\theta(\tau'),&space; &space;\varphi&space;(\tau'),&space;&space;t(\tau')" target="_blank"><img src="https://latex.codecogs.com/gif.latex?r(\tau'),&space;&space;\theta(\tau'),&space;&space;\varphi&space;(\tau'),&space;&space;t(\tau')" title="r(\tau'), \, \theta(\tau'), \, \varphi (\tau'), \, t(\tau')" /></a> into Python, where they can be analysed. These trajectories are then converted to cartesian co-ordinates <a href="https://www.codecogs.com/eqnedit.php?latex=x(\tau'),&space;y(\tau'),&space;z(\tau')" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x(\tau'),&space;y(\tau'),&space;z(\tau')" title="x(\tau'), y(\tau'), z(\tau')" /></a> internally in the Python script, and are then plotted. 
 
 
 
