@@ -1,18 +1,18 @@
 # README #
 ## RayTracer - A Python and C++ package for solving photon geodesics in full General Relativity. ##
-### What is in this README? ###
+## What is in this README? ##
 * Description of what the package RayTracer.py can do
 * Description of the physics problem that is solved
 * Brief description of the algorithm used
 * Instructions of how to set-up and use this program
 
-### What do I do?  ###
+## What do I do?  ##
 ![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleAnimation.gif)
 
 ![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleNewtonianFigure.png)
 ![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleGRFigure.png)
 
-### The Physics ###
+## The Physics ##
 In brief, we solve the standard equations of motion for a photon moving through a general relativistic spacetime:
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{{\rm&space;d^2}x^\mu}{{\rm&space;d}\tau^2}&space;&plus;&space;\Gamma^\mu_{\sigma&space;\nu}&space;\frac{{\rm&space;d}x^\sigma}{{\rm&space;d}\tau}\frac{{\rm&space;d}x^\nu}{{\rm&space;d}\tau}&space;=&space;0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{{\rm&space;d^2}x^\mu}{{\rm&space;d}\tau^2}&space;&plus;&space;\Gamma^\mu_{\sigma&space;\nu}&space;\frac{{\rm&space;d}x^\sigma}{{\rm&space;d}\tau}\frac{{\rm&space;d}x^\nu}{{\rm&space;d}\tau}&space;=&space;0" title="\frac{{\rm d^2}x^\mu}{{\rm d}\tau^2} + \Gamma^\mu_{\sigma \nu} \frac{{\rm d}x^\sigma}{{\rm d}\tau}\frac{{\rm d}x^\nu}{{\rm d}\tau} = 0" /></a>
@@ -55,7 +55,7 @@ and
 
 
 
-### Brief description of the algorithm ###
+## Brief description of the algorithm ##
 The actual numerical solution of the photon equations is done in the file ray_tracing.cpp. The algorithm works in the following way.
 
 #### Step 1 ####
@@ -75,7 +75,7 @@ Load the trajectories <a href="https://www.codecogs.com/eqnedit.php?latex=r(\tau
 
 
 
-### How do I get set up? ###
+## How do I get set up? ##
 
 * Pull the codes into their own folder
 * Run examples.py for a series of examples of what the code package can do. Note: you will have to manually edit examples.py to display different examples, the script defaults to 'example_zero' 
