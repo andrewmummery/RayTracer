@@ -56,11 +56,22 @@ and
 
 
 ### Brief description of the algorithm ###
+The actual numerical solution of the photon equations is done in the file ray_tracing.cpp. The algorithm works in the following way.
 
-The path of these photons are then ran backwards towards the blackhole-disc plane. The path of the photon is terminated when it either: 
+#### Step 1 ####
+Read in the parameters <a href="https://www.codecogs.com/eqnedit.php?latex=(\alpha,&space;\beta,&space;\theta_{\rm&space;obs},&space;a)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?(\alpha,&space;\beta,&space;\theta_{\rm&space;obs},&space;a)" title="(\alpha, \beta, \theta_{\rm obs}, a)" /></a>  and calculate the initial values of the photons 4-position and 4-momentum. 
+
+#### Step 2 ####
+Evolve the photons trajectory back towards the blackhole-disc plane
+
+#### Step 3 ####
+The path of the photon is terminated when it either: 
 * Hits the event horizon of the blackhole
 * Hits an accretion disc in the equatorial plane of the blackhole (the presence of the disc can be switched on and off)
 * Passes between the disc inner edge and the blackholes event horizon and escapes to a large distance (~ 30 gravitational radii) from the blackhole
+
+#### Step 4 ####
+Load the trajectories <a href="https://www.codecogs.com/eqnedit.php?latex=r(\tau'),&space; &space;\theta(\tau'),&space; &space;\varphi&space;(\tau'),&space;&space;t(\tau')" target="_blank"><img src="https://latex.codecogs.com/gif.latex?r(\tau'),&space;&space;\theta(\tau'),&space;&space;\varphi&space;(\tau'),&space;&space;t(\tau')" title="r(\tau'), \, \theta(\tau'), \, \varphi (\tau'), \, t(\tau')" /></a> into Python, where they can be analysed. 
 
 
 
@@ -69,5 +80,5 @@ The path of these photons are then ran backwards towards the blackhole-disc plan
 **Method one:**
 * Pull the codes into their own folder
 * Run examples.py for a series of examples of what the code package can do. Note: you will have to manually edit examples.py to display different examples, the script defaults to 'example_zero' 
-* Make your own images/animations by creating Python scripts in the same folder as RayTracer.py
+* Make your own images/animations by creating Python scripts in the same folder as RayTracer.py, having copied the first 20 lines of examples.py
 
