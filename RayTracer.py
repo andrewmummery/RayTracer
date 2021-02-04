@@ -249,7 +249,8 @@ def plot_ray(ax, x, y, z, color=None):
     return
 
 
-def animate_rays(xs, ys, zs, ts, a, cmap='jet', n_frame=None, disc=False, burst_mode=False, lw=2.0, ls='-', interval = 1, blit = False, repeat = True):
+def animate_rays(xs, ys, zs, ts, a, cmap='jet', n_frame=None, disc=False, burst_mode=False, lw=2.0, ls='-', interval = 1, blit = False, repeat = True,
+     fig_width=9, fig_height=6, view_theta=60,view_phi=-130):
     ''' Animates a set of ray paths described by x_i(t_i), y_i(t_i), z_i(t_i). 
         Takes as input:
             xs = [x1(t1), x2(t2), x3(t3), ....]
@@ -320,9 +321,9 @@ def animate_rays(xs, ys, zs, ts, a, cmap='jet', n_frame=None, disc=False, burst_
 
     
     if disc:
-        fig, ax = make_canvas(a)
+        fig, ax = make_canvas(a, fig_width=fig_width, fig_height=fig_height, view_theta=view_theta,view_phi=view_phi)
     else:
-        fig, ax = make_canvas_no_disc(a)
+        fig, ax = make_canvas_no_disc(a, fig_width=fig_width, fig_height=fig_height, view_theta=view_theta,view_phi=view_phi)
     
     line, = ax.plot([], [])
     plotlays, plotcols = [n_rays], colors
@@ -614,11 +615,13 @@ def camera_image(a, theta0, N_r=50, N_phi=200, r_out=20, rest_wavelength=550, wa
                 ax1.scatter(disc_x_line, disc_y_line,s=1, color='k')
         
     
+    ax.set_title('General Relativistic Universe', fontsize=18)
+    ax1.set_title("'Newtonian' Universe", fontsize=18)
     ### End of camera image.
-    return 
+    return fig, ax, fig1, ax1
 
 
-def plot_rays_from_parameters(spins, thetas, alphas, betas, technique='NoDisc'):
+def plot_rays_from_parameters(spins, thetas, alphas, betas, technique='NoDisc', fig_width=9, fig_height=6, view_theta=60,view_phi=-130):
     
     ## Cast all parameters into lists
     if type(spins) != type([]):
@@ -658,9 +661,9 @@ def plot_rays_from_parameters(spins, thetas, alphas, betas, technique='NoDisc'):
         xs[i], ys[i], zs[i], ts[i] = x, y, z, t
     
     if technique == 'NoDisc':
-        fig, ax = make_canvas_no_disc(spins[0])
+        fig, ax = make_canvas_no_disc(spins[0], fig_width=fig_width, fig_height=fig_height, view_theta=view_theta,view_phi=view_phi)
     else:
-        fig, ax = make_canvas(spins[0])
+        fig, ax = make_canvas(spins[0], fig_width=fig_width, fig_height=fig_height, view_theta=view_theta,view_phi=view_phi)
     
     cm = plt.cm.get_cmap('jet')
     colors = cm(np.linspace(0,1,n_ray))
@@ -670,7 +673,8 @@ def plot_rays_from_parameters(spins, thetas, alphas, betas, technique='NoDisc'):
 
     return fig, ax
 
-def animate_rays_from_parameters(spins, thetas, alphas, betas, technique='NoDisc'):
+def animate_rays_from_parameters(spins, thetas, alphas, betas, technique='NoDisc', cmap='jet', n_frame=None, burst_mode=False,
+                lw=2.0, ls='-', interval = 1, blit = False, repeat = True, fig_width=9, fig_height=6, view_theta=60,view_phi=-130):
     
     ## Cast all parameters into lists
     if type(spins) != type([]):
@@ -710,13 +714,16 @@ def animate_rays_from_parameters(spins, thetas, alphas, betas, technique='NoDisc
         xs[i], ys[i], zs[i], ts[i] = x, y, z, t
     
     if technique == 'NoDisc':
-        anim_fig, anim_ax, anim = animate_rays(xs, ys, zs, ts, spins[0], disc=False)
+        anim_fig, anim_ax, anim = animate_rays(xs, ys, zs, ts, spins[0], disc=False, cmap=cmap, n_frame=n_frame, burst_mode=burst_mode,
+     lw=lw, ls=ls, interval = interval, blit = blit, repeat = repeat, fig_width=fig_width, fig_height=fig_height, view_theta=view_theta,view_phi=view_phi)
     else:
-        anim_fig, anim_ax, anim = animate_rays(xs, ys, zs, ts, spins[0], disc=True)
+        anim_fig, anim_ax, anim = animate_rays(xs, ys, zs, ts, spins[0], disc=True, cmap=cmap, n_frame=n_frame, burst_mode=burst_mode,
+     lw=lw, ls=ls, interval = interval, blit = blit, repeat = repeat, fig_width=fig_width, fig_height=fig_height, view_theta=view_theta,view_phi=view_phi)
 
     return fig, ax, anim
 
-def plot_and_animate_rays_from_parameters(spins, thetas, alphas, betas, technique='NoDisc'):
+def plot_and_animate_rays_from_parameters(spins, thetas, alphas, betas, technique='NoDisc', cmap='jet', n_frame=None, burst_mode=False,
+                lw=2.0, ls='-', interval = 1, blit = False, repeat = True, fig_width=9, fig_height=6, view_theta=60,view_phi=-130):
     
     ## Cast all parameters into lists
     if type(spins) != type([]):
@@ -756,9 +763,9 @@ def plot_and_animate_rays_from_parameters(spins, thetas, alphas, betas, techniqu
         xs[i], ys[i], zs[i], ts[i] = x, y, z, t
     
     if technique == 'NoDisc':
-        plot_fig, plot_ax = make_canvas_no_disc(spins[0])
+        plot_fig, plot_ax = make_canvas_no_disc(spins[0], fig_width=fig_width, fig_height=fig_height, view_theta=view_theta,view_phi=view_phi)
     else:
-        plot_fig, plot_ax = make_canvas(spins[0])
+        plot_fig, plot_ax = make_canvas(spins[0], fig_width=fig_width, fig_height=fig_height, view_theta=view_theta,view_phi=view_phi)
     
     cm = plt.cm.get_cmap('jet')
     colors = cm(np.linspace(0,1,n_ray))
@@ -767,14 +774,16 @@ def plot_and_animate_rays_from_parameters(spins, thetas, alphas, betas, techniqu
         plot_ray(plot_ax, x, y, z,color=colors[i])
     
     if technique == 'NoDisc':
-        anim_fig, anim_ax, anim = animate_rays(xs, ys, zs, ts, spins[0], disc=False)
+        anim_fig, anim_ax, anim = animate_rays(xs, ys, zs, ts, spins[0], disc=False, cmap=cmap, n_frame=n_frame, burst_mode=burst_mode,
+     lw=lw, ls=ls, interval = interval, blit = blit, repeat = repeat, fig_width=fig_width, fig_height=fig_height, view_theta=view_theta,view_phi=view_phi)
     else:
-        anim_fig, anim_ax, anim = animate_rays(xs, ys, zs, ts, spins[0], disc=True)
+        anim_fig, anim_ax, anim = animate_rays(xs, ys, zs, ts, spins[0], disc=True, cmap=cmap, n_frame=n_frame, burst_mode=burst_mode,
+     lw=lw, ls=ls, interval = interval, blit = blit, repeat = repeat, fig_width=fig_width, fig_height=fig_height, view_theta=view_theta,view_phi=view_phi)
         
     return plot_fig, plot_ax, anim_fig, anim_ax, anim
 
 
-#########################   END.    ########################
+#########################   END.    #########################
 
 
 

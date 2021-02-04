@@ -1,7 +1,15 @@
 """
     Some simple examples of what RayTracer.py can do. 
+    
+    To run through the 13 different examples comment out/in 
+    the different examples in the function main().
+
+    Note that the first time you run the function RayTracer.camera_image()
+    the algorithm will have to compute a large number of photon trajectories
+    which should take ~ a couple of minutes (or more on an older machine).
+
 """
-## Import for the ray tracing modules
+## Import the ray tracing modules
 import RayTracer
 
 ## 3rd party imports
@@ -9,6 +17,40 @@ import RayTracer
 import numpy as np
 ## matplotlib for displaying plots
 import matplotlib.pyplot as plt
+import matplotlib
+
+def main():
+    """
+        This function will run if you run
+    
+        $ python3 examples.py
+        
+        in your terminal. ($ denotes terminal prompt.)
+        
+    """
+    example_zero()
+    # example_one()
+    # example_two_a()
+    # example_two_b()
+    # example_two_c()
+    # example_three()
+    # example_four()
+
+    a = 0.9
+    theta0 = 80
+
+    # RayTracer.camera_image(a, theta0, set_unobservable_grey=False)
+    # RayTracer.camera_image(a, theta0, set_unobservable_grey=False, set_intensity=False, rest_wavelength=500)
+    # RayTracer.camera_image(a, theta0, set_unobservable_grey=True, set_intensity=False, rest_wavelength=600)
+    # RayTracer.camera_image(a, theta0, wavelength_function=lambda_from_xy_2, set_unobservable_grey=False, set_intensity=False)
+    # RayTracer.camera_image(a, theta0, wavelength_function=lambda_from_xy_3, set_unobservable_grey=False, set_intensity=False)
+    # RayTracer.camera_image(a, theta0, wavelength_function=lambda_from_xy_4, set_unobservable_grey=False, set_intensity=False)
+
+
+    plt.show()
+    
+    
+    return None
 
 def example_zero():
     a = 0
@@ -16,9 +58,10 @@ def example_zero():
     a0 = 3
     b0 = 4.25063
     
-    plot_fig, plot_ax, anim_fig, anim_ax, anim = RayTracer.plot_and_animate_rays_from_parameters(spins=a, thetas=theta0, alphas=a0, betas=b0, technique='NoDisc')
+    plot_fig, plot_ax, anim_fig, anim_ax, anim = RayTracer.plot_and_animate_rays_from_parameters(spins=a, thetas=theta0, alphas=a0, betas=b0, technique='Disc')
     
     plt.show()
+    
     
     
 def example_one():
@@ -28,9 +71,17 @@ def example_one():
     
     b0_s = [4.23,4.24,4.245,4.2475,4.25063,4.255,4.2575,4.26,4.27,4.3,4.35,4.4,4.5,4.6,4.7]
     
-    plot_fig, plot_ax, anim_fig, anim_ax, anim = RayTracer.plot_and_animate_rays_from_parameters(spins=a, thetas=theta0, alphas=a0_s, betas=b0_s, technique='NoDisc')
+    plot_fig, plot_ax, anim_fig, anim_ax, anim = RayTracer.plot_and_animate_rays_from_parameters(spins=a, thetas=theta0, alphas=a0_s, betas=b0_s,
+     technique='NoDisc')
     
     plt.show()
+    
+    ### The code below saves a gif. Note that the duration of the saved gif depends
+    ### on both the n_frame variable in the above function, and fps in the below.
+      
+    # writer = matplotlib.animation.PillowWriter(fps=1000)
+    # anim.save('ExampleAnimation.gif',writer=writer)
+    
     
 
 def example_two_a():
@@ -149,26 +200,11 @@ def lambda_from_xy_4(x, y):
     lambda_tru = lambda_0 - d_lambda * np.exp(-abs(spiral_par)/2.5)
     return lambda_tru
 
-example_zero()
-# example_one()
-# example_two_a()
-# example_two_b()
-# example_two_c()
-# example_three()
-# example_four()
 
-a = 0.9
-theta0 = 80
-
-# RayTracer.camera_image(a, theta0, set_unobservable_grey=True)
-# RayTracer.camera_image(a, theta0, set_unobservable_grey=True, set_intensity=False, rest_wavelength=500)
-# RayTracer.camera_image(a, theta0, set_unobservable_grey=True, set_intensity=False, rest_wavelength=600)
-# RayTracer.camera_image(a, theta0, wavelength_function=lambda_from_xy_2, set_unobservable_grey=False, set_intensity=False)
-# RayTracer.camera_image(a, theta0, wavelength_function=lambda_from_xy_3, set_unobservable_grey=False, set_intensity=False)
-# RayTracer.camera_image(a, theta0, wavelength_function=lambda_from_xy_4, set_unobservable_grey=False, set_intensity=False)
+if __name__ == "__main__":
+    main()
 
 
-plt.show()
 
 
 # End.
