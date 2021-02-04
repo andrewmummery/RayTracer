@@ -59,10 +59,10 @@ and
 The actual numerical solution of the photon equations is done in the file ray_tracing.cpp. The algorithm works in the following way.
 
 #### Step 1 ####
-Read in the parameters <a href="https://www.codecogs.com/eqnedit.php?latex=(\alpha,&space;\beta,&space;\theta_{\rm&space;obs},&space;a)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?(\alpha,&space;\beta,&space;\theta_{\rm&space;obs},&space;a)" title="(\alpha, \beta, \theta_{\rm obs}, a)" /></a>  and calculate the initial values of the photons 4-position and 4-momentum. 
+Read in the parameters <a href="https://www.codecogs.com/eqnedit.php?latex=(\alpha,&space;\beta,&space;\theta_{\rm&space;obs},&space;a)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?(\alpha,&space;\beta,&space;\theta_{\rm&space;obs},&space;a)" title="(\alpha, \beta, \theta_{\rm obs}, a)" /></a>  and calculate the initial values (image plane) of the photons 4-position and 4-momentum. 
 
 #### Step 2 ####
-Evolve the photons trajectory back towards the blackhole-disc plane
+Evolve the photons trajectory back towards the blackhole-disc plane by solving the four dynamical equations described above. (We actually split the dynamical equations into six coupled first order equations which are solved by the RK4 method, for more details see Appendix A of https://ui.adsabs.harvard.edu/abs/2020MNRAS.492.5655M/abstract)
 
 #### Step 3 ####
 The path of the photon is terminated when it either: 
