@@ -18,6 +18,11 @@ The same equations also allow interesting photon orbits to be calculated. This s
 This package can also take a 'camera image' of an accretion disc around a blackhole. For example, if we imagine a green monochromatic accretion disc (physically unlikely), in orbit around a blackhole, like the below:
 
 ![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleNewtonianFigure.png)
+
+We can ask the question, what would an observer in our universe 'see' if they looked at this accretion disc. There are two aspects to the answer of this question. 
+* Light rays are bent by the gravitational attraction of the blackhole, and so the image of the accretion disc is distorted  
+* A
+
 ![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleGRFigure.png)
 
 ## The Physics ##
