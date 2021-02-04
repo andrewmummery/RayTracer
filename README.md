@@ -27,6 +27,36 @@ The idea is to start with a photon in the observers image plane, specified by tw
 
 ![](https://github.com/andrewmummery/RayTracer/blob/main/Schematic_of_co-ordinates.png)
 
+Fortunately, in the Kerr metric we have two constants of motion, the angular momentum and energy of the photon. This of course results from the time and phi independence of the Kerr metric. The two constants of motion can be calculated at the initial conditions in the image plane. By defining:
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=L&space;\equiv&space;p_{\varphi}&space;=&space;g_{\varphi\varphi}&space;\frac{{\rm&space;d}\varphi}{{\rm&space;d}\tau}&space;&plus;&space;g_{\varphi&space;t}\frac{{\rm&space;d}t}{{\rm&space;d}\tau}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?L&space;\equiv&space;p_{\varphi}&space;=&space;g_{\varphi\varphi}&space;\frac{{\rm&space;d}\varphi}{{\rm&space;d}\tau}&space;&plus;&space;g_{\varphi&space;t}\frac{{\rm&space;d}t}{{\rm&space;d}\tau}" title="L \equiv p_\varphi = g_{\varphi\varphi} \frac{{\rm d}\varphi}{{\rm d}\tau} + g_{\varphi t}\frac{{\rm d}t}{{\rm d}\tau}" /></a>
+
+and 
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=E&space;\equiv&space;-p_t&space;=&space;-&space;g_{tt}&space;\frac{{\rm&space;d}t}{{\rm&space;d}\tau}&space;-&space;g_{t&space;\varphi}\frac{{\rm&space;d}\varphi}{{\rm&space;d}\tau}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?E&space;\equiv&space;-p_t&space;=&space;-&space;g_{tt}&space;\frac{{\rm&space;d}t}{{\rm&space;d}\tau}&space;-&space;g_{t&space;\varphi}\frac{{\rm&space;d}\varphi}{{\rm&space;d}\tau}" title="E \equiv -p_t = - g_{tt} \frac{{\rm d}t}{{\rm d}\tau} - g_{t \varphi}\frac{{\rm d}\varphi}{{\rm d}\tau}" /></a>
+
+We can write two simplified equations of motion for the <a href="https://www.codecogs.com/eqnedit.php?latex=\varphi" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\varphi" title="\varphi" /></a> and <a href="https://www.codecogs.com/eqnedit.php?latex=t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?t" title="t" /></a> co-ordinates:
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\frac{{\rm&space;d}&space;t&space;}{{\rm&space;d}\tau'}&space;=&space;-&space;\frac{l&space;g_{&space;\varphi&space;t}&space;&plus;&space;g_{&space;\varphi&space;\varphi}}{g_{\varphi&space;\varphi}&space;g_{tt}&space;-&space;g_{\varphi&space;t}^2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{{\rm&space;d}&space;t&space;}{{\rm&space;d}\tau'}&space;=&space;-&space;\frac{l&space;g_{&space;\varphi&space;t}&space;&plus;&space;g_{&space;\varphi&space;\varphi}}{g_{\varphi&space;\varphi}&space;g_{tt}&space;-&space;g_{\varphi&space;t}^2}" title="\frac{{\rm d} t }{{\rm d}\tau'} = - \frac{l g_{ \varphi t} + g_{ \varphi \varphi}}{g_{\varphi \varphi} g_{tt} - g_{\varphi t}^2}" /></a>
+
+and 
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\frac{{\rm&space;d}&space;\varphi&space;}{{\rm&space;d}\tau'}&space;=&space;\frac{l&space;g_{&space;t&space;t}&space;&plus;&space;g_{&space;t&space;\varphi}}{g_{\varphi&space;\varphi}&space;g_{tt}&space;-&space;g_{\varphi&space;t}^2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{{\rm&space;d}&space;\varphi&space;}{{\rm&space;d}\tau'}&space;=&space;\frac{l&space;g_{&space;t&space;t}&space;&plus;&space;g_{&space;t&space;\varphi}}{g_{\varphi&space;\varphi}&space;g_{tt}&space;-&space;g_{\varphi&space;t}^2}" title="\frac{{\rm d} \varphi }{{\rm d}\tau'} = \frac{l g_{ t t} + g_{ t \varphi}}{g_{\varphi \varphi} g_{tt} - g_{\varphi t}^2}" /></a>
+
+where we normalise our proper time and angular momentum values by the photons energy: <a href="https://www.codecogs.com/eqnedit.php?latex=\tau'&space;=&space;E&space;\tau,&space;\,\,\,&space;l&space;=&space;L/E" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\tau'&space;=&space;E&space;\tau,&space;\,\,\,&space;l&space;=&space;L/E" title="\tau' = E \tau, \,\,\, l = L/E" /></a>. 
+
+Our final two equations of motion are then:
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\frac{{\rm&space;d^2}&space;r}{{\rm&space;d}{\tau'}^2}&space;=&space;-&space;\Gamma^r_{\sigma&space;\nu}&space;\frac{{\rm&space;d}x^\sigma}{{\rm&space;d}\tau'}\frac{{\rm&space;d}x^\nu}{{\rm&space;d}\tau'}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{{\rm&space;d^2}&space;r}{{\rm&space;d}{\tau'}^2}&space;=&space;-&space;\Gamma^r_{\sigma&space;\nu}&space;\frac{{\rm&space;d}x^\sigma}{{\rm&space;d}\tau'}\frac{{\rm&space;d}x^\nu}{{\rm&space;d}\tau'}" title="\frac{{\rm d^2} r}{{\rm d}{\tau'}^2} = - \Gamma^r_{\sigma \nu} \frac{{\rm d}x^\sigma}{{\rm d}\tau'}\frac{{\rm d}x^\nu}{{\rm d}\tau'}" /></a>
+
+and 
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\frac{{\rm&space;d^2}&space;\theta&space;}{{\rm&space;d}{\tau'}^2}&space;=&space;-&space;\Gamma^\theta_{\sigma&space;\nu}&space;\frac{{\rm&space;d}x^\sigma}{{\rm&space;d}\tau'}\frac{{\rm&space;d}x^\nu}{{\rm&space;d}\tau'}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{{\rm&space;d^2}&space;\theta&space;}{{\rm&space;d}{\tau'}^2}&space;=&space;-&space;\Gamma^\theta_{\sigma&space;\nu}&space;\frac{{\rm&space;d}x^\sigma}{{\rm&space;d}\tau'}\frac{{\rm&space;d}x^\nu}{{\rm&space;d}\tau'}" title="\frac{{\rm d^2} \theta }{{\rm d}{\tau'}^2} = - \Gamma^\theta_{\sigma \nu} \frac{{\rm d}x^\sigma}{{\rm d}\tau'}\frac{{\rm d}x^\nu}{{\rm d}\tau'}" /></a>
+
+
+
+### Brief description of the algorithm ###
+
 The path of these photons are then ran backwards towards the blackhole-disc plane. The path of the photon is terminated when it either: 
 * Hits the event horizon of the blackhole
 * Hits an accretion disc in the equatorial plane of the blackhole (the presence of the disc can be switched on and off)
