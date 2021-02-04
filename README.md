@@ -17,9 +17,10 @@ where our co-ordinates are <a href="https://www.codecogs.com/eqnedit.php?latex=x
 
 and <a href="https://www.codecogs.com/eqnedit.php?latex=g_{\mu\nu}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?g_{\mu\nu}" title="g_{\mu\nu}" /></a> is the Kerr metric.
 
-The idea is to start with a photon in the observers image plane, specified by two (cartesian) co-ordinates <a href="https://www.codecogs.com/eqnedit.php?latex=\alpha" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\alpha" title="\alpha" /></a> and <a href="https://www.codecogs.com/eqnedit.php?latex=\beta" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\beta" title="\beta" /></a>, at a large distance <a href="https://www.codecogs.com/eqnedit.php?latex=D" target="_blank"><img src="https://latex.codecogs.com/gif.latex?D" title="D" /></a> and inclination angle <a href="https://www.codecogs.com/eqnedit.php?latex=\theta_{\rm&space;obs}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\theta_{\rm&space;obs}" title="\theta_{\rm obs}" /></a> 
+The idea is to start with a photon in the observers image plane, specified by two (cartesian) co-ordinates <a href="https://www.codecogs.com/eqnedit.php?latex=\alpha" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\alpha" title="\alpha" /></a> and <a href="https://www.codecogs.com/eqnedit.php?latex=\beta" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\beta" title="\beta" /></a>, at a large distance <a href="https://www.codecogs.com/eqnedit.php?latex=D" target="_blank"><img src="https://latex.codecogs.com/gif.latex?D" title="D" /></a> away from a blackhole of (dimensionless) spin <a href="https://www.codecogs.com/eqnedit.php?latex=a" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a" title="a" /></a>, observed at an inclination angle <a href="https://www.codecogs.com/eqnedit.php?latex=\theta_{\rm&space;obs}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\theta_{\rm&space;obs}" title="\theta_{\rm obs}" /></a>. The co-ordinate settup is displayed in the below figure:  
 
 ![](https://github.com/andrewmummery/RayTracer/blob/main/Schematic_of_co-ordinates.png)
+
 
 
 ### How do I get set up? ###
