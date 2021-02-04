@@ -6,8 +6,14 @@
 * Brief description of the algorithm used
 * Instructions of how to set-up and use this program
 
-## What do I do?  ##
+If any students of the Oxford B5 - General Relativity course find bugs/need help setting up/find cool results using this software, email andrew.mummery@physics.ox.ac.uk for help etc. 
+
+## What does RayTracer do?  ##
+This package solves the evolutionary equations for photons moving through the Kerr metric.  The program is designed to trace the paths of photons emitted from an accretion disc in the blackholes equatorial plane, to an astronomical observer. 
+
 ![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleAnimation.gif)
+
+This package can also take a picture. 
 
 ![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleNewtonianFigure.png)
 ![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleGRFigure.png)
