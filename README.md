@@ -1,5 +1,11 @@
 # README #
 ## RayTracer - A Python and C++ package for solving photon geodesics in full General Relativity. ##
+### What is in this README? ###
+* Description of what the package RayTracer.py can do
+* Description of the physics problem that is solved
+* Brief description of the algorithm used
+* Instructions of how to set-up and use this program
+
 ### What do I do?  ###
 ![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleAnimation.gif)
 
@@ -21,11 +27,17 @@ The idea is to start with a photon in the observers image plane, specified by tw
 
 ![](https://github.com/andrewmummery/RayTracer/blob/main/Schematic_of_co-ordinates.png)
 
+The path of these photons are then ran backwards towards the blackhole-disc plane. The path of the photon is terminated when it either: 
+* Hits the event horizon of the blackhole
+* Hits an accretion disc in the equatorial plane of the blackhole (the presence of the disc can be switched on and off)
+* Passes between the disc inner edge and the blackholes event horizon and escapes to a large distance (~ 30 gravitational radii) from the blackhole
+
 
 
 ### How do I get set up? ###
 
 **Method one:**
-* Pull into it's own folder
-* Within the folder, run "python3 -m pip install -e ."
+* Pull the codes into their own folder
+* Run examples.py for a series of examples of what the code package can do. Note: you will have to manually edit examples.py to display different examples, the script defaults to 'example_zero' 
+* Make your own images/animations by creating Python scripts in the same folder as RayTracer.py
 
