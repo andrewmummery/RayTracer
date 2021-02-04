@@ -74,7 +74,7 @@ The path of the photon is terminated when it either:
 Load the trajectories <a href="https://www.codecogs.com/eqnedit.php?latex=r(\tau'),&space; &space;\theta(\tau'),&space; &space;\varphi&space;(\tau'),&space;&space;t(\tau')" target="_blank"><img src="https://latex.codecogs.com/gif.latex?r(\tau'),&space;&space;\theta(\tau'),&space;&space;\varphi&space;(\tau'),&space;&space;t(\tau')" title="r(\tau'), \, \theta(\tau'), \, \varphi (\tau'), \, t(\tau')" /></a> into Python, where they can be analysed. These trajectories are then converted to cartesian co-ordinates <a href="https://www.codecogs.com/eqnedit.php?latex=x(\tau'),&space;y(\tau'),&space;z(\tau')" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x(\tau'),&space;y(\tau'),&space;z(\tau')" title="x(\tau'), y(\tau'), z(\tau')" /></a> internally in the Python script, and are then plotted. 
 
 ## How do I use this package? ##
-The main functions for the user are all in the RayTracer.py file. They can be split into three types.
+The main functions for the user are all in the RayTracer.py file. They can be split into three types. Examples of each type of function are shown in the examples.py file. 
 ### Getting the physical parameters of a photon trajectory ###
 Use the function RayTracer.run_cpp_ray_trace(params) which takes as input a list 'params'.
 
@@ -90,6 +90,17 @@ Use one the functions
 * RayTracer.plot_and_animate_rays_from_parameters(spins, thetas, alphas, betas)
 * RayTracer.plot_rays_from_parameters(spins, thetas, alphas, betas)
 * RayTracer.animate_rays_from_parameters(spins, thetas, alphas, betas)
+
+Each function takes as an input a single scalar or list of each of the four parameters. 
+
+### Taking a 'camera image' ###
+Use the function RayTracer.camera_image(a, theta). This function takes a camera image of a disc around a blackhole of spin value <a href="https://www.codecogs.com/eqnedit.php?latex=a" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a" title="a" /></a>, observed at an inclination angle <a href="https://www.codecogs.com/eqnedit.php?latex=\theta_{\rm&space;obs}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\theta_{\rm&space;obs}" title="\theta_{\rm obs}" /></a>. 
+
+This function takes four optional parameters. 
+* 'set_unobservable_grey' which should be set True or False. If True, any photons which would be observed with photon frequencies outside of the visible range are set to grey.
+* 'set_intensity' which should be set True or False. If True, the intensity of each image pixel is set proportional to the red-shift factor cubed. 
+* 'rest_wavelength' which should be set to a numerical value. This value is equal to the emission frequency of the disc photons in the disc rest frame. This value is in nanometers. The observable range is 380nm to 750nm. 
+* 'wavelength_function', which should be set equal to a python function of the <a href="https://www.codecogs.com/eqnedit.php?latex=(x,&space;y)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?(x,&space;y)" title="(x, y)" /></a> co-ordinates of the disc equatorial plane, <a href="https://www.codecogs.com/eqnedit.php?latex=\lambda_{{\rm&space;emitted}}&space;=&space;f(x,&space;y)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\lambda_{{\rm&space;emitted}}&space;=&space;f(x,&space;y)" title="\lambda_{{\rm emitted}} = f(x, y)" /></a>
 
 ## How do I set up this package? ##
 
