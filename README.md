@@ -21,9 +21,15 @@ This package can also take a 'camera image' of an accretion disc around a blackh
 
 We can ask the question, what would an observer in our universe 'see' if they looked at this accretion disc. There are two aspects to the answer of this question. 
 * Light rays are bent by the gravitational attraction of the blackhole, and so the image of the accretion disc is distorted  
-* A
+* As photons pass through the Kerr spacetime their energy (and therefore observed colour) is changed by 
+    * Gravitational red-shift
+    * Doppler shifting (from the motion of the highly relativistic disc material)
+
+The resulting image an observer would see is the following: 
 
 ![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleGRFigure.png)
+
+The above image is made with physically-correct colours, and was produced for an inclination angle <a href="https://www.codecogs.com/eqnedit.php?latex=\theta_{\rm&space;obs}&space;=&space;80^\circ" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\theta_{\rm&space;obs}&space;=&space;80^\circ" title="\theta_{\rm obs} = 80^\circ" /></a> and blackhole spin <a href="https://www.codecogs.com/eqnedit.php?latex=a&space;=&space;0.9" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a&space;=&space;0.9" title="a = 0.9" /></a> 
 
 ## The Physics ##
 In brief, we solve the standard equations of motion for a photon moving through a general relativistic spacetime:
