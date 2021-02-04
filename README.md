@@ -4,6 +4,10 @@
 ### What do I do?  ###
 ![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleAnimation.gif)
 
+![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleNewtonianFigure.png)
+![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleGRFigure.png)
+
+### The Physics ###
 ![](https://github.com/andrewmummery/RayTracer/blob/main/Schematic_of_co-ordinates.png)
 
 
