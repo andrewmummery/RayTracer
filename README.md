@@ -31,6 +31,16 @@ The resulting image an observer would see is the following:
 
 The above image is made with physically-correct colours, and was produced for an inclination angle <a href="https://www.codecogs.com/eqnedit.php?latex=\theta_{\rm&space;obs}&space;=&space;80^\circ" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\theta_{\rm&space;obs}&space;=&space;80^\circ" title="\theta_{\rm obs} = 80^\circ" /></a> and blackhole spin <a href="https://www.codecogs.com/eqnedit.php?latex=a&space;=&space;0.9" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a&space;=&space;0.9" title="a = 0.9" /></a> 
 
+Real astrophysical accretion discs have a temperature profile which falls off approximately like <a href="https://www.codecogs.com/eqnedit.php?latex=T&space;\propto&space;r^{-3/4}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?T&space;\propto&space;r^{-3/4}" title="T \propto r^{-3/4}" /></a> which means that the emitted radiation has a rest-frame wavelength which scales roughly like <a href="https://www.codecogs.com/eqnedit.php?latex=\lambda_{{\rm&space;emitted}}&space;\sim&space;r^{3/4}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\lambda_{{\rm&space;emitted}}&space;\sim&space;r^{3/4}" title="\lambda_{{\rm emitted}} \sim r^{3/4}" /></a> and so look more like:
+
+
+![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleNewtonianFigure2.png)
+
+This emission profile would translate to the following observed profile:
+
+![](https://github.com/andrewmummery/RayTracer/blob/main/ExampleGRFigure2.png)
+
+
 ## The Physics ##
 In brief, we solve the standard equations of motion for a photon moving through a general relativistic spacetime:
 
