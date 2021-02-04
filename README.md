@@ -77,7 +77,6 @@ Load the trajectories <a href="https://www.codecogs.com/eqnedit.php?latex=r(\tau
 
 ### How do I get set up? ###
 
-**Method one:**
 * Pull the codes into their own folder
 * Run examples.py for a series of examples of what the code package can do. Note: you will have to manually edit examples.py to display different examples, the script defaults to 'example_zero' 
 * Make your own images/animations by creating Python scripts in the same folder as RayTracer.py, having copied the first 20 lines of examples.py
