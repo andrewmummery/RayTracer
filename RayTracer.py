@@ -7,7 +7,7 @@ import sys ## for printing progress on large loops (camera image function).
 
 ## Maths and linear algebra
 import numpy as np
-from scipy.interpolate import interp1d
+from scipy.interpolate import interp1d##Interpolation useful for making smooth anomations
 
 ### Plotting and animating
 import matplotlib.pyplot as plt
@@ -291,15 +291,6 @@ def animate_rays(xs, ys, zs, ts, a, cmap='jet', n_frame=None, disc=False, burst_
         t_i = t[ind]
         return t_i, ind
     
-    def get_t_interesting(x, y, z, t):
-        ''' Returns the time at which radius is minimised 
-            (the interesting part of the path). 
-        '''
-        r,_,_ = sphereical_polar_from_cartesian(x, y, z, a)
-        ind = np.argmin(r) # gets first instance of minimum r in array.
-        tmin = t[ind]
-        return tmin
-        
     def get_t_max(ts):
         ''' Returns the largest proper time 
             of all the photon paths
@@ -734,13 +725,13 @@ def animate_rays_from_parameters(spins, thetas, alphas, betas, technique='NoDisc
         xs[i], ys[i], zs[i], ts[i] = x, y, z, t
     
     if technique == 'NoDisc':
-        anim_fig, anim_ax, anim = animate_rays(xs, ysr, zs, ts, spins[0], disc=False, cmap=cmap, n_frame=n_frame, burst_mode=burst_mode,
+        anim_fig, anim_ax, anim = animate_rays(xs, ys, zs, ts, spins[0], disc=False, cmap=cmap, n_frame=n_frame, burst_mode=burst_mode,
      lw=lw, ls=ls, interval = interval, blit = blit, repeat = repeat, fig_width=fig_width, fig_height=fig_height, view_theta=view_theta,view_phi=view_phi)
     else:
         anim_fig, anim_ax, anim = animate_rays(xs, ys, zs, ts, spins[0], disc=True, cmap=cmap, n_frame=n_frame, burst_mode=burst_mode,
      lw=lw, ls=ls, interval = interval, blit = blit, repeat = repeat, fig_width=fig_width, fig_height=fig_height, view_theta=view_theta,view_phi=view_phi)
 
-    return fig, ax, anim
+    return anim_fig, anim_ax, anim
 
 def plot_and_animate_rays_from_parameters(spins, thetas, alphas, betas, technique='NoDisc', cmap='jet', n_frame=None, burst_mode=False,
                 lw=2.0, ls='-', interval = 1, blit = False, repeat = True, fig_width=9, fig_height=6, view_theta=60,view_phi=-130):
