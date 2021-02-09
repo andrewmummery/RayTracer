@@ -1,6 +1,7 @@
 ### For compiling/running the c++ file
 import os
 import platform ## for checking if im windows or linux
+import sys ## for printing progress on large loops (camera image function).
 
 ### 3rd party imports ###
 
@@ -15,6 +16,18 @@ from mpl_toolkits.mplot3d import Axes3D
 from mpl_toolkits.mplot3d import axes3d as ax3d
 from matplotlib import animation
 import matplotlib.colors
+
+
+def printProgressBar(Q,size,preText='',postText=''):
+    """
+        Prints a progress bar to show how far through a loop you are. 
+    """
+    n_bar =30 #size of progress bar
+    q = Q/size
+    sys.stdout.write('\r')
+    sys.stdout.write(f" {preText} [{'=' * int(n_bar * q):{n_bar}s}] {postText} ")
+    sys.stdout.flush()
+    return None
 
 def compile_cpp(cpp_file='ray_tracing.cpp', exe_file='ray_tracing.o'):
     ''' Compiles the C++ file.
@@ -440,7 +453,7 @@ def get_spectral_color_map(set_unobservable_grey=True):
     spectralmap = matplotlib.colors.LinearSegmentedColormap.from_list("spectrum", colorlist)
     return spectralmap
 
-def camera_image(a, theta0, N_r=50, N_phi=200, r_out=20, rest_wavelength=550, wavelength_function=None, set_unobservable_grey=False, set_intensity=False):
+def camera_image(a, theta0, N_r=50, N_phi=200, r_out=20, rest_wavelength=550, wavelength_function=None, set_unobservable_grey=False, set_intensity=False, print_progress=False):
     ''' Takes a camera image. 
     '''
     
@@ -492,9 +505,10 @@ def camera_image(a, theta0, N_r=50, N_phi=200, r_out=20, rest_wavelength=550, wa
         
         f_min = 0.01
         f_max = 2.00
-
+        n_rays_traced = 0
         for i in range(N_r):
             for j in range(N_phi):
+                n_rays_traced += 1
                 alpha = im_r[i] * np.cos(im_phi[j])
                 beta = im_r[i] * np.sin(im_phi[j]) * np.cos(theta0*np.pi/180)
                 if beta > 0:
@@ -512,8 +526,14 @@ def camera_image(a, theta0, N_r=50, N_phi=200, r_out=20, rest_wavelength=550, wa
                 red_shifts.append(f)
                 phys_x.append(x[-1])
                 phys_y.append(y[-1])
-            
-    
+                if print_progress:
+                    if n_rays_traced % 100 == 0:
+                        printProgressBar(Q=n_rays_traced,size=N_r*N_phi,preText='Ray tracing....',postText='Photons traced: '+str(n_rays_traced)+'/'+str(N_r*N_phi))
+        
+        if print_progress:            
+            printProgressBar(Q=N_r*N_phi,size=N_r*N_phi,preText='Ray tracing....',postText='Photons traced: '+str(N_r*N_phi)+'/'+str(N_r*N_phi))
+            print('')
+        
         red_shifts = [red_shifts[k] if not (red_shifts[k] < f_min or red_shifts[k] > f_max) else np.nan for k in range(N_r*N_phi)]
     
         save_string = ['N_r=',str(N_r),'N_phi=',str(N_phi),'a=',str(a),'theta=',str(theta0),'r_out=',str(r_out)]
@@ -714,7 +734,7 @@ def animate_rays_from_parameters(spins, thetas, alphas, betas, technique='NoDisc
         xs[i], ys[i], zs[i], ts[i] = x, y, z, t
     
     if technique == 'NoDisc':
-        anim_fig, anim_ax, anim = animate_rays(xs, ys, zs, ts, spins[0], disc=False, cmap=cmap, n_frame=n_frame, burst_mode=burst_mode,
+        anim_fig, anim_ax, anim = animate_rays(xs, ysr, zs, ts, spins[0], disc=False, cmap=cmap, n_frame=n_frame, burst_mode=burst_mode,
      lw=lw, ls=ls, interval = interval, blit = blit, repeat = repeat, fig_width=fig_width, fig_height=fig_height, view_theta=view_theta,view_phi=view_phi)
     else:
         anim_fig, anim_ax, anim = animate_rays(xs, ys, zs, ts, spins[0], disc=True, cmap=cmap, n_frame=n_frame, burst_mode=burst_mode,
