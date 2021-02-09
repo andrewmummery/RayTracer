@@ -68,7 +68,7 @@ def run_cpp_ray_trace(params, technique='Simple',exe_file='ray_tracing.o', cpp_f
         print('######################### ERROR #########################')
         print('Ray trace got %d params but needs 4'%(len(params))) 
         print('#########################################################')
-        return 0
+        raise ValueError('Ray trace got %d params but needs 4'%(len(params)))
     
     
     params.append(technique)
